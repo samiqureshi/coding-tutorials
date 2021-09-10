@@ -8,4 +8,10 @@ public class Planet {
         this.radius = radius;
         this.distance = distance;
     }
+
+    public static void main(String[] args){
+        Planet p1 = new Planet("Saturn", 21678, 125678);
+        Planet p2 = new Planet("Jupiter", 32678294659l, 3562794329l);
+
+    }
 }

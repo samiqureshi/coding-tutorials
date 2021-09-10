@@ -14,6 +14,9 @@ public class Assignment1{
 
     public static float average(int a, int b, int c) {
         float result = 0.0f;
+        int sum = a + b + c;
+        result = (float)sum/3;
+        
         //--------------
         //YOUR CODE HERE
         //--------------
