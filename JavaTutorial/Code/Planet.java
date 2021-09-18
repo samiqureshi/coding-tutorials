@@ -9,9 +9,11 @@ public class Planet {
         this.distance = distance;
     }
 
-    public static void main(String[] args){
-        Planet p1 = new Planet("Saturn", 21678, 125678);
-        Planet p2 = new Planet("Jupiter", 32678294659l, 3562794329l);
-
+    public void printInfo(){
+        System.out.println("-----------------------------------");
+        System.out.println(String.format("Planet Name: %s", name, name));
+        System.out.println(String.format("Planet Radius: %d Kms", radius));
+        System.out.println(String.format("Planet Distance: %d Kms", distance));
+        System.out.println("-----------------------------------");
     }
 }
