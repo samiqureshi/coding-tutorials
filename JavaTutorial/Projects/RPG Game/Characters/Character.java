@@ -13,7 +13,11 @@ public abstract class Character {
     public int magic;
     public int health;
 
-    public abstract void fight(Character other);
+    public void fight(Character other){
+        System.out.println("------FIGHT STARTING------");
+        System.out.println(String.format("%s %s VS %s %s", this.getClass().getSimpleName(), this.name, other.getClass().getSimpleName(), other.name));
+
+    }
 
     public Character(){
         Scanner sc = new Scanner(System.in);
@@ -24,7 +28,7 @@ public abstract class Character {
         System.out.print("Enter age of your character: ");
         this.age = sc.nextInt();
         this.level = 1;
-        this.health = 100;
+        this.health = 10;
 
         int points = 20;
 
@@ -43,6 +47,7 @@ public abstract class Character {
                 points = points - choice;
             }
             else{
+                points = 20;
                 continue;
             }
             System.out.println("Points remaining: " + points);
@@ -53,6 +58,7 @@ public abstract class Character {
                 points = points - choice;
             }
             else{
+                points = 20;
                 continue;
             }
             System.out.println("Points remaining: " + points);
@@ -63,6 +69,7 @@ public abstract class Character {
                 points = points - choice;
             }
             else{
+                points = 20;
                 continue;
             }
             System.out.println("Points remaining: " + points);
@@ -73,6 +80,7 @@ public abstract class Character {
                 points = points - choice;
             }
             else{
+                points = 20;
                 continue;
             }
 

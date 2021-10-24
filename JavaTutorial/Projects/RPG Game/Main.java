@@ -6,5 +6,6 @@ public class Main {
         Character c1 = new SamCharacter();
         Character c2 = new SamCharacter();
         c1.fight(c2);
+
     }
 }
