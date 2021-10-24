@@ -2,6 +2,8 @@ package Characters;
 
 import java.util.Scanner;
 
+import Utilities.Utilities;
+
 public class SamCharacter extends Character {
 
 
@@ -10,19 +12,17 @@ public class SamCharacter extends Character {
     }
 
     @Override
-    public void attack(Character c) {
-        // TODO Auto-generated method stub
-        
+    public int attack() {
+        return Utilities.atkToDamage(this.attack);
     }
 
     @Override
-    public void defend() {
-        // TODO Auto-generated method stub
-        
+    public int defend() {
+        return Utilities.defToBlock(this.defense);        
     }
 
     @Override
-    public void special(Character c) {
+    public void special() {
         // TODO Auto-generated method stub
         
     }

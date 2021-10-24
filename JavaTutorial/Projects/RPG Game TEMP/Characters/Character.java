@@ -2,6 +2,8 @@ package Characters;
 
 import java.util.Scanner;
 
+import FightEngine.FightThread;
+
 public abstract class Character {
     public String name;
     public String race;
@@ -13,9 +15,9 @@ public abstract class Character {
     public int dexterity;
     public int health;
     
-    public abstract void attack(Character c);
-    public abstract void defend();
-    public abstract void special(Character c);
+    public abstract int attack();
+    public abstract int defend();
+    public abstract void special();
 
     public Character(){
         Scanner sc = new Scanner(System.in);
@@ -25,6 +27,7 @@ public abstract class Character {
         this.race = sc.nextLine();
         System.out.print("Enter age of " + this.getClass().getSimpleName() + ": ");
         this.age = sc.nextInt();
+        this.health = 10;
         int points = 20;
         
         while(points!=0){
@@ -41,30 +44,47 @@ public abstract class Character {
                 this.attack = choice;
                 points = points - choice;
             }
+            else{
+                continue;
+            }
             System.out.println("Points remaining: " + points);
             System.out.println("DEF?");
             choice = sc.nextInt();
             if(choice >= 1 && choice <=17){
-                this.defense= choice;
+                this.defense = choice;
                 points = points - choice;
             }
-            System.out.println("Points remaining: " + points);
-            System.out.println("MGK?");
-            choice = sc.nextInt();
-            if(choice >= 1 && choice <=17){
-                this.magic= choice;
-                points = points - choice;
+            else{
+                continue;
             }
             System.out.println("Points remaining: " + points);
             System.out.println("DEX?");
             choice = sc.nextInt();
             if(choice >= 1 && choice <=17){
-                this.dexterity= choice;
+                this.dexterity = choice;
                 points = points - choice;
             }
+            else{
+                continue;
+            }
+            System.out.println("Points remaining: " + points);
+            System.out.println("MGK?");
+            choice = sc.nextInt();
+            if(choice >= 1 && choice <=17){
+                this.magic = choice;
+                points = points - choice;
+            }
+            else{
+                continue;
+            }
+
 
         }
 
+    }
+
+    public void printHealthInfo(){
+        System.out.println(this.name + " remaining health: " + this.health);
     }
 
     public void printInfo() {
@@ -81,6 +101,14 @@ public abstract class Character {
     public void fight(Character c) {
         System.out.println("------FIGHT STARTING------");
         System.out.println(String.format("%s %s VS %s %s", this.getClass().getSimpleName(), this.name, c.getClass().getSimpleName(), c.name));
-        
+        // this.printInfo();
+        // c.printInfo();
+        System.out.println("--------------------------");
+        FightThread t1 = new FightThread(this, c);
+        FightThread t2 = new FightThread(c, this);
+        t1.run();
+        t2.run();
+
+
     }
 }
