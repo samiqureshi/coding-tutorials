@@ -2,6 +2,8 @@ package Characters;
 
 import java.util.Scanner;
 
+import FightEngine.FightThread;
+
 public abstract class Character {
     public String name;
     public String characterClass;
@@ -13,10 +15,21 @@ public abstract class Character {
     public int magic;
     public int health;
 
+    public abstract int attack();
+    public abstract int defend();
+    public abstract void special();
+
     public void fight(Character other){
         System.out.println("------FIGHT STARTING------");
         System.out.println(String.format("%s %s VS %s %s", this.getClass().getSimpleName(), this.name, other.getClass().getSimpleName(), other.name));
+        FightThread t1 = new FightThread(this, other);
+        FightThread t2 = new FightThread(other, this);
+        t1.start();
+        t2.start();
+    }
 
+    public void printHealthInfo(){
+        System.out.println(this.name + " remaining health: " + this.health);
     }
 
     public Character(){

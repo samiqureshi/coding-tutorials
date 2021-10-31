@@ -10,7 +10,7 @@ public class Utilities {
     public static int atkToDamage(int atk){
         float dmg = 0;
         dmg = (float)((0.5625*atk) + 0.4375);        
-        double random = 1 + Math.random()*(2 - 1);
+        double random = 1 + Math.random();
         int rndDmg = (int)(random * dmg);
         return rndDmg;
     }
@@ -18,7 +18,7 @@ public class Utilities {
     public static int defToBlock(int def){
         float blk = 0;
         blk = (float)((0.25*def) + 0.75);
-        double random = 1 + Math.random()*(2 - 1);
+        double random = 1 + Math.random();
         int rndBlk = (int)(random*blk);
         return rndBlk;
 

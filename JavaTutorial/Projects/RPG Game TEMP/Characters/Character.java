@@ -106,8 +106,17 @@ public abstract class Character {
         System.out.println("--------------------------");
         FightThread t1 = new FightThread(this, c);
         FightThread t2 = new FightThread(c, this);
-        t1.run();
-        t2.run();
+        t1.start();
+        t2.start();
+
+        while(t1.isAlive() && t2.isAlive()){
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
 
 
     }
