@@ -38,9 +38,11 @@ public class FightThread extends Thread{
         }
         if(character1.health > 0){
             System.out.println(character1.name + " WINS!!");
+            this.interrupt();
         }
         else{
             System.out.println(character1.name + " LOSES!!");
+            this.interrupt();
         }
     }
 
