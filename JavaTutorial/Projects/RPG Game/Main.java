@@ -22,8 +22,4 @@ public class Main {
         c1.fight(c2);
 
     }
-
-    public static Character loadCharacter(){
-
-    }
 }
