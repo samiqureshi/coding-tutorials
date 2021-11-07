@@ -30,12 +30,21 @@ public class FightThread extends Thread{
                 character1.printHealthInfo();
                 character2.printHealthInfo();
 
-                System.out.println("HELLO " + character1.name);
             }
             catch(Exception ex){
                 ex.printStackTrace();
             }
         }
+        if(character1.health > 0){
+            System.out.println(character1.name + " WINS!!");
+            this.interrupt();
+        }
+        else{
+            System.out.println(character1.name + " LOSES!!");
+            this.interrupt();
+        }
+
+        
     }
 
 }

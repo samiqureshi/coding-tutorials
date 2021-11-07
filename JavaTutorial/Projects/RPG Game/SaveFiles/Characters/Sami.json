@@ -1,0 +1,11 @@
+{
+    "name":"Sami",
+    "race":"Human",
+    "age":45,
+    "level":9,
+    "attack":5,
+    "defense":5,
+    "magic":5,
+    "dexterity":5,
+    "health":10
+}
