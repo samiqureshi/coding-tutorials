@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("1 - Choose Character");
-        System.out.print("2 - Create Character");
+        System.out.println("2 - Create Character");
         System.out.print("Enter Choice [1 or 2]");
         int choice = sc.nextInt();
         Character c1 = null;
