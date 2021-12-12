@@ -45,9 +45,9 @@ public class RPGGameScreen implements Screen {
 //        bucketImage = new Texture(Gdx.files.internal("bucket.png"));
 
         // load the drop sound effect and the rain background "music"
-        dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
-        rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
-        rainMusic.setLooping(true);
+//        dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
+//        rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
+//        rainMusic.setLooping(true);
 
         // create the camera and the SpriteBatch
         camera = new OrthographicCamera();
@@ -82,7 +82,7 @@ public class RPGGameScreen implements Screen {
     public void show() {
         // start the playback of the background music
         // when the screen is shown
-        rainMusic.play();
+//        rainMusic.play();
     }
 
     @Override
