@@ -1,4 +1,4 @@
-package com.badlogic.drop.screens;
+package com.badlogic.drop.views;
 
 import com.badlogic.drop.main.RPGGame;
 import com.badlogic.gdx.Gdx;

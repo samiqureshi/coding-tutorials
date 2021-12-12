@@ -1,6 +1,6 @@
 package com.badlogic.drop.main;
 
-import com.badlogic.drop.screens.MainMenuScreen;
+import com.badlogic.drop.views.MainMenuScreen;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
