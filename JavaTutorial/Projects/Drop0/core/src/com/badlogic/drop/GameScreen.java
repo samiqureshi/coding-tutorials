@@ -10,11 +10,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.TimeUtils;
 
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 
 public class GameScreen implements Screen {
     final Drop0 game;
@@ -27,9 +29,21 @@ public class GameScreen implements Screen {
     Array<Rectangle> raindrops;
     long lastDropTime;
     int dropsGathered;
+    Stage stage;
+    private HealthBar h1;
+    private HealthBar h2;
+    private long lastUpdate = 0L;
 
     public GameScreen(final Drop0 game) {
         this.game = game;
+        //Healthbar stuff
+        stage = new Stage();
+        h1 = new HealthBar(200, 10);
+        h2 = new HealthBar(200, 10);
+        h1.setPosition(20, Gdx.graphics.getHeight() - 20);
+        h2.setPosition(Gdx.graphics.getWidth() - h2.getWidth() - 20, Gdx.graphics.getHeight() - 20);
+        stage.addActor(h1);
+        stage.addActor(h2);
 
         // load the images for the droplet and the bucket, 64x64 pixels each
         dropImage = new Texture(Gdx.files.internal("droplet.png"));
@@ -93,12 +107,19 @@ public class GameScreen implements Screen {
 
         // begin a new batch and draw the bucket and
         // all drops
-        game.batch.begin();
-        game.font.draw(game.batch, "Drops Collected: " + dropsGathered, 0, 480);
-        game.batch.draw(bucketImage, bucket.x, bucket.y, bucket.width, bucket.height);
-        for (Rectangle raindrop : raindrops) {
-            game.batch.draw(dropImage, raindrop.x, raindrop.y);
+        if (System.currentTimeMillis() - lastUpdate > TimeUnit.SECONDS.toMillis(5)) {
+            h1.setValue(h1.getValue() - 0.1f);
+            h2.setValue(h1.getValue() - 0.1f);
+            lastUpdate = System.currentTimeMillis();
         }
+        game.batch.begin();
+//        game.font.draw(game.batch, "Drops Collected: " + dropsGathered, 0, 480);
+//        game.batch.draw(bucketImage, bucket.x, bucket.y, bucket.width, bucket.height);
+        stage.draw();
+        stage.act();
+//        for (Rectangle raindrop : raindrops) {
+//            game.batch.draw(dropImage, raindrop.x, raindrop.y);
+//        }
         game.batch.end();
 
         // process user input
