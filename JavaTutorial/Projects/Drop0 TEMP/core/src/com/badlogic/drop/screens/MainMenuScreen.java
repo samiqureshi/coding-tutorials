@@ -1,15 +1,16 @@
-package com.badlogic.drop;
+package com.badlogic.drop.screens;
 
+import com.badlogic.drop.main.RPGGame;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class MainMenuScreen implements Screen {
-    final Drop0 game;
+    final RPGGame game;
     OrthographicCamera camera;
 
-    public MainMenuScreen(final Drop0 game){
+    public MainMenuScreen(final RPGGame game){
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
@@ -33,7 +34,7 @@ public class MainMenuScreen implements Screen {
         game.batch.end();
 
         if(Gdx.input.isTouched()){
-            game.setScreen(new GameScreen(game));
+            game.setScreen(new RPGGameScreen(game));
             dispose();
         }
 

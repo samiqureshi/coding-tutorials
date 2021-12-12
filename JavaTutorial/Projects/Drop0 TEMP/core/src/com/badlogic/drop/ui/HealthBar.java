@@ -1,5 +1,6 @@
-package com.badlogic.drop;
+package com.badlogic.drop.ui;
 
+import com.badlogic.drop.utils.Utils;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 //import xyz.codingdaddy.util.Utils;

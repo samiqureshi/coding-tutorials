@@ -1,4 +1,4 @@
-package com.badlogic.drop;
+package com.badlogic.drop.utils;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
