@@ -1,23 +1,24 @@
 package com.badlogic.drop.views;
 
-import com.badlogic.drop.main.RPGGame;
+import com.badlogic.drop.main.FightGame;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class MainMenuScreen implements Screen {
-    private final RPGGame game;
+    private final FightGame game;
     private OrthographicCamera camera;
     private Stage stage;
     private Skin skin;
 
-    public MainMenuScreen(final RPGGame game){
+    public MainMenuScreen(final FightGame game){
         this.game = game;
         this.stage = new Stage();
         camera = new OrthographicCamera();
@@ -43,7 +44,7 @@ public class MainMenuScreen implements Screen {
         ImageTextButton fightBtn = new ImageTextButton("Fight", skin);
         ImageTextButton createFighterBtn = new ImageTextButton("Create Fighter", skin);
         ImageTextButton prefsBtn = new ImageTextButton("Preferences", skin);
-        ImageTextButton exit = new ImageTextButton("Exit", skin);
+        ImageTextButton exitBtn = new ImageTextButton("Exit", skin);
 
         // fillX - fills the remaining space within its cell
         // uniformX - will force the size of any cells within
@@ -54,7 +55,21 @@ public class MainMenuScreen implements Screen {
         table.row();
         table.add(prefsBtn).fillX().uniformX();
         table.row();
-        table.add(exit).fillX().uniformX();
+        table.add(exitBtn).fillX().uniformX();
+
+        exitBtn.addListener(new ChangeListener(){
+            @Override
+            public void changed(ChangeEvent event, Actor actor){
+                Gdx.app.exit();
+            }
+        });
+
+        fightBtn.addListener(new ChangeListener(){
+            @Override
+            public void changed(ChangeEvent event, Actor actor){
+                game.switchScreen(APPLICATION);
+            }
+        });
 
     }
 

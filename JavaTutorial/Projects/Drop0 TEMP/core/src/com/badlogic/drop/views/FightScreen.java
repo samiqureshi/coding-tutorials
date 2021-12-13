@@ -1,6 +1,6 @@
 package com.badlogic.drop.views;
 
-import com.badlogic.drop.main.RPGGame;
+import com.badlogic.drop.main.FightGame;
 import com.badlogic.drop.ui.HealthBar;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -13,8 +13,8 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 import java.util.concurrent.TimeUnit;
 
-public class RPGGameScreen implements Screen {
-    final RPGGame game;
+public class FightScreen implements Screen {
+    final FightGame game;
 //    Texture dropImage;
 //    Texture bucketImage;
     Sound dropSound;
@@ -29,7 +29,7 @@ public class RPGGameScreen implements Screen {
     private HealthBar h2;
     private long lastUpdate = 0L;
 
-    public RPGGameScreen(final RPGGame game) {
+    public FightScreen(final FightGame game) {
         this.game = game;
         //Healthbar stuff
         stage = new Stage();

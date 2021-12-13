@@ -6,7 +6,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class RPGGame extends Game {
+public class FightGame extends Game {
 	public SpriteBatch batch;
 	public BitmapFont font;
 	public AssetLoader assetLoader = new AssetLoader();
@@ -21,10 +21,6 @@ public class RPGGame extends Game {
 		assetLoader.manager.finishLoading();
 		assetLoader.rainMusic.setLooping(true);
 		assetLoader.rainMusic.play();
-
-
-
-
 	}
 
 	@Override
