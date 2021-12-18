@@ -11,7 +11,6 @@ public class AssetLoader {
 
     public Sound dropSound;
     public Music rainMusic;
-    public Skin neonSkin;
     public Skin bioSkin;
 
     public void queueLoadImages(){
@@ -27,7 +26,6 @@ public class AssetLoader {
     public void queueLoadSkin(){
         // load button skins
         bioSkin = new Skin(Gdx.files.internal("skin/biological-attack/skin/biological-attack-ui.json"));
-//        neonSkin = new Skin(Gdx.files.internal("skin/neon-ui.json"));
     }
 
 
