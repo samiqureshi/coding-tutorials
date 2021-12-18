@@ -1,6 +1,7 @@
 package com.badlogic.drop.views;
 
 import com.badlogic.drop.main.FightGame;
+import com.badlogic.drop.utils.ScreenTag;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -67,7 +68,7 @@ public class MainMenuScreen implements Screen {
         fightBtn.addListener(new ChangeListener(){
             @Override
             public void changed(ChangeEvent event, Actor actor){
-                game.switchScreen(APPLICATION);
+                game.switchScreen(ScreenTag.FIGHT);
             }
         });
 
